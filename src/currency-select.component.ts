@@ -16,7 +16,7 @@ export class CurrencySelectComponent {
 
   @Input() selected: string;
   @Output() setClick = new EventEmitter();
-  setClick = new EventEmitter();
+  
 
   supportedCurrencies = [];
 
