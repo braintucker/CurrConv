@@ -12,7 +12,9 @@ import { ExchangeService } from './exchange.service';
 })
 export class CurrencySelectComponent {
 
+  
   @Input() selected: string;
+  //generating custom events
   @Output() selectedChange = new EventEmitter<string>();
 
 
