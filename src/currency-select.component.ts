@@ -15,8 +15,8 @@ import { ExchangeService } from './exchange.service';
 export class CurrencySelectComponent {
 
   @Input() selected: string;
-  @Output() setClick = new EventEmitter();
-  
+  @Output() selectedChange = new EventEmitter();
+
 
   supportedCurrencies = [];
 
@@ -25,6 +25,6 @@ export class CurrencySelectComponent {
   }
 
   onSetClick() {
-    this.setClick.emit(this.selected);
+    this.selectedChange.emit(this.selected);
   }
 }

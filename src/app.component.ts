@@ -6,10 +6,9 @@ import { ExchangeService } from './exchange.service';
   template: `
     <input type="number" [(ngModel)]="baseAmount"
       [class.error]="isInvalid(baseAmount)">
-    <currency-select [selected]="baseCurrency"></currency-select>
+    <currency-select [(selected)]="baseCurrency"></currency-select>
     = <strong>{{targetAmount}}</strong>
-    <currency-select [selected]="targetCurrency"
-      (setClick)="targetCurrency = $event"></currency-select>
+    <currency-select [(selected)]="targetCurrency"></currency-select>
     <p>({{baseCurrency}} to {{targetCurrency}})</p>
   `,
   styles: [`
