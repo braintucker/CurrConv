@@ -7,7 +7,7 @@ import { ExchangeService } from './exchange.service';
     <input type="number" [(ngModel)]="baseAmount"
       [class.error]="isInvalid(baseAmount)">
     <currency-select [(selected)]="baseCurrency"></currency-select>
-    = <strong>{{targetAmount}}</strong>
+    = <strong>{{targetAmount | number:'1.2-2'}}</strong>
     <currency-select [(selected)]="targetCurrency"></currency-select>
     <p *ngIf="isInvalid(baseAmount)"> Please enter a valid amount</p>
   `,
@@ -23,6 +23,7 @@ import { ExchangeService } from './exchange.service';
 })
 export class AppComponent {
 
+  
   baseCurrency = 'USD';
   targetCurrency = 'GBP';
   baseAmount = 1;
@@ -32,7 +33,7 @@ export class AppComponent {
   get targetAmount() {
     const exchangeRate = this.exchangeService
       .getExchangeRate(this.baseCurrency, this.targetCurrency);
-    return this.baseAmount * exchangeRate;
+    return (this.baseAmount * exchangeRate).toFixed(2);
   }
 
   isInvalid(value) {
