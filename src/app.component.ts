@@ -9,7 +9,6 @@ import { ExchangeService } from './exchange.service';
     <currency-select [(selected)]="baseCurrency"></currency-select>
     = <strong>{{targetAmount}}</strong>
     <currency-select [(selected)]="targetCurrency"></currency-select>
-    <p>({{baseCurrency}} to {{targetCurrency}})</p>
   `,
   styles: [`
     input[type=number] {

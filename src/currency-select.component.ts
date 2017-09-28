@@ -8,13 +8,12 @@ import { ExchangeService } from './exchange.service';
         {{currency}}
       </option>
     </select>
-    ({{selected}})
   `
 })
 export class CurrencySelectComponent {
 
   @Input() selected: string;
-  @Output() selectedChange = new EventEmitter();
+  @Output() selectedChange = new EventEmitter<string>();
 
 
   supportedCurrencies = [];
@@ -23,7 +22,7 @@ export class CurrencySelectComponent {
     this.supportedCurrencies = exchangeService.supportedCurrencies;
   }
 
-  onSelectedChange(selected) {
+  onSelectedChange(selected: string) {
     this.selected = selected;
     this.selectedChange.emit(selected);
   }
