@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-
+import { ExchangeService } from './exchange.service';
 @Component({
   selector: 'currency-select',
   template: `
@@ -14,6 +14,11 @@ export class CurrencySelectComponent {
 
   @Input() selected: string;
 
-  supportedCurrencies = ['EUR', 'GBP', 'USD'];
+  supportedCurrencies = [];
+
+  constructor(exchangeService: ExchangeService){
+    this.supportedCurrencies = exchangeService.supportedCurrencies;
+
+  }
 
 }
